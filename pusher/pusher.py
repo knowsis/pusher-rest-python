@@ -66,7 +66,7 @@ class Pusher(object):
 
         http://pusher.com/docs/rest_api#method-post-event
         '''
-        if isinstance(channels, six.string_types) or not isinstance(channels, (collections.Sized, collections.Iterable)):
+        if not isinstance(channels, six.string_types) and not isinstance(channels, (collections.Sized, collections.Iterable)):
             raise TypeError("Expected a collection of channels (each channel should be %s)" % text)
 
         if len(channels) > 10:
